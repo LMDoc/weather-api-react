@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
 const Day = props => {
-	let min_temp = String(props.data.list[0].main.temp_min).split('.')[0];
-	let max_temp = String(props.data.list[0].main.temp_max).split('.')[0];
+	let icon = 'http://openweathermap.org/img/w/'+props.data.weather[0].icon+'.png';
+	let min_temp = String(props.data.main.temp_min).split('.')[0];
+	let max_temp = String(props.data.main.temp_max).split('.')[0];
+	let updatedTime = Date().slice(16,21);
 
 	return (
 		<div className='card'>
-			<h2> Today </h2>
-				<img src='http://icon-park.com/imagefiles/simple_weather_icons_thunderstorms.png' />
+			<h3> {props.data.name}, {props.data.sys.country}</h3>
+				<img src={ icon } alt='icon'/>
 			<div className='temps'>
-				<h3 id='low'>{min_temp}c</h3>
-				<h3>{max_temp}c</h3>
+				<p>{max_temp}c</p> <p>{props.data.weather[0].main}</p>
 			</div>
+			<p id='small'>Updated: {updatedTime}</p>
 		</div>
 	)
 }
