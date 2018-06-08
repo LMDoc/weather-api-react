@@ -52,7 +52,10 @@ class App extends Component {
   render() {
   if(!this.state.data.name) {
     return (
-      <h1>Loading Data...</h1>
+      <div className="loading">
+        <h1>Just a moment...</h1>
+        <img src="http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif" />
+      </div>
     )
   }
 
